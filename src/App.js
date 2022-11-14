@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { createContext } from 'react';
 import './App.css';
+import ChildA from './ChildA';
 
+const data = createContext();
+const data1 = createContext();
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const name = 'Praharsh';
+	const gender = 'Male';
+
+	//Context Api
+	// Create, Provider , Consumer
+
+	return (
+		<div className='App'>
+			<header className='App-header'>
+				<h1>App</h1>
+
+				<data.Provider value={name}>
+					<data1.Provider value={gender}>
+						<ChildA />
+					</data1.Provider>
+				</data.Provider>
+			</header>
+		</div>
+	);
 }
 
 export default App;
+export { data, data1 };
